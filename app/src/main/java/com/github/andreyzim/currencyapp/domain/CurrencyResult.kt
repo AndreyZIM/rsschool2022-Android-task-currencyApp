@@ -12,7 +12,7 @@ sealed class CurrencyResult {
         override fun <T> map(mapper: Mapper<T>): T = mapper.map(list, "")
     }
 
-    class Failure(private val message: String) : CurrencyResult() {
+    data class Failure(private val message: String) : CurrencyResult() {
         override fun <T> map(mapper: Mapper<T>): T = mapper.map(emptyList() , message)
     }
 }
